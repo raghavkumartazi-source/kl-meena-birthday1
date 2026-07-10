@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>भव्य निमंत्रण | के.एल. मीना जी का 54वाँ जन्मोत्सव</title>
+  <meta name="description" content="के.एल. मीना जी के 54वें जन्मोत्सव के शुभ एवं गौरवशाली अवसर पर आप सपरिवार सादर आमंत्रित हैं।" />
+  <meta property="og:title" content="भव्य निमंत्रण | के.एल. मीना जी का 54वाँ जन्मोत्सव" />
+  <meta property="og:description" content="स्नेह व आदर के साथ विशेष रूप से आमंत्रित। अपना डिजिटल निमंत्रण खोलने के लिए क्लिक करें।" />
+  <meta property="og:image" content="assets/kl_meena_portrait.png" />
+  <meta name="theme-color" content="#090909" />
+
+  <!-- Google Fonts: Royal Devanagari Hindi & Luxury Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Cinzel:wght@500;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body class="loading-active">
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Mouse Following Ambient Gold Glow (Desktop & Tablet) -->
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Floating Golden Stardust Canvas (Background Bokeh & Particles) -->
+  <canvas id="stardust-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       PHASE 0: LOADING EXPERIENCE (3-5 seconds + Cinematic Frame Transition)
+       ========================================================================= -->
+  <div id="loading-overlay" class="loading-overlay">
+    <!-- Golden Particle & Expanding Line Container -->
+    <div class="line-animation-container">
+      <div id="golden-particle" class="golden-particle"></div>
+      <div id="golden-line" class="golden-line"></div>
+    </div>
+
+    <!-- Staggered Intro Text Container -->
+    <div class="intro-text-wrapper">
+      <p id="intro-line-1" class="intro-text">An Invitation</p>
+      <div id="intro-divider-1" class="intro-dot-divider"></div>
+      <p id="intro-line-2" class="intro-text">Crafted with Love</p>
+      <div id="intro-divider-2" class="intro-dot-divider"></div>
+      <p id="intro-line-3" class="intro-text">Especially For</p>
+      <h1 id="intro-guest-name" class="intro-guest-name">✨ Rajkumar Meena & Arita Meena ✨</h1>
+    </div>
+
+    <!-- Open Invitation Magnetic Luxury Button -->
+    <div id="intro-btn-wrapper" class="intro-btn-wrapper hidden">
+      <button id="open-invitation-btn" class="luxury-btn magnetic-btn ripple-trigger">
+        <span class="btn-text">Open Invitation</span>
+        <span class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 4V20M12 20L18 14M12 20L6 14" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="btn-glow-effect"></div>
+      </button>
+      <p class="intro-sound-note">सर्वोत्तम अनुभव के लिए कृपया ध्वनि (Sound) चालू रखें</p>
+    </div>
+
+    <!-- Cinematic Glowing Frame for Transition to Hero -->
+    <div id="cinematic-frame" class="cinematic-frame aria-hidden">
+      <div class="frame-border top"></div>
+      <div class="frame-border right"></div>
+      <div class="frame-border bottom"></div>
+      <div class="frame-border left"></div>
+      <div class="frame-light-fill"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FLOATING AUDIO CONTROLLER & GUEST CUSTOMIZER
+       ========================================================================= -->
+  <aside class="floating-controls" aria-label="Experience Controls">
+    <!-- Music Mute/Unmute Button -->
+    <button id="music-toggle-btn" class="control-btn ripple-trigger" aria-label="Toggle Background Music" title="ध्वनि चालू / बंद करें">
+      <div class="music-bars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <svg id="icon-sound-off" class="icon-sound" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 9L17 15" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 9L23 15" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Personalize Guest Name Button -->
+    <button id="customize-guest-btn" class="control-btn ripple-trigger" aria-label="Customize Guest Name" title="अतिथि का नाम बदलें">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Personalization Modal -->
+  <div id="customizer-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog" aria-labelledby="customizer-title">
+    <div class="modal-content glass-card">
+      <button id="close-modal-btn" class="close-modal-btn" aria-label="Close modal">&times;</button>
+      <h3 id="customizer-title" class="modal-heading">निमंत्रण में नाम बदलें</h3>
+      <p class="modal-subheading">अतिथि या परिवार का नाम दर्ज करें ताकि निमंत्रण कार्ड पर वही नाम प्रदर्शित हो।</p>
+      <div class="input-group">
+        <label for="guest-name-input">अतिथि या परिवार का नाम</label>
+        <input type="text" id="guest-name-input" placeholder="जैसे: शर्मा परिवार, डॉ. राजेश एवं परिवार" value="शर्मा परिवार" />
+      </div>
+      <div class="modal-actions">
+        <button id="save-guest-btn" class="luxury-btn small-btn ripple-trigger">अपडेट करें व पुनः देखें</button>
+      </div>
+      <p class="modal-tip">💡 सुझाव: आप लिंक द्वारा भी भेज सकते हैं: <code>?guest=आपका+नाम</code></p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN CONTENT / THE LUXURY INVITATION EXPERIENCE
+       ========================================================================= -->
+  <main id="main-experience" class="main-experience hidden">
+
+    <!-- HERO REVEAL SECTION -->
+    <section id="hero-section" class="hero-section parallax-section">
+      <div class="hero-background-glow"></div>
+      
+      <div class="hero-content">
+        <!-- Portrait Container with Shimmer Light Sweep -->
+        <div class="portrait-wrapper reveal-item">
+          <div class="portrait-frame">
+            <img id="hero-portrait" src="assets/kl_meena_portrait.png" alt="के.एल. मीना जी" class="portrait-img" loading="eager" />
+            <div class="light-sweep-overlay"></div>
+            <div class="golden-corner corner-top-left"></div>
+            <div class="golden-corner corner-top-right"></div>
+            <div class="golden-corner corner-bottom-left"></div>
+            <div class="golden-corner corner-bottom-right"></div>
+          </div>
+          <div class="portrait-pedestal"></div>
+        </div>
+
+        <!-- Heading & Subtitle -->
+        <div class="hero-typography">
+          <span class="hero-badge reveal-item" style="--stagger: 1">Grand Celebration</span>
+          <h1 class="hero-heading reveal-item" style="--stagger: 2">54th Birthday Celebration</h1>
+          <div class="hero-divider reveal-item" style="--stagger: 3">
+            <span class="divider-line"></span>
+            <span class="divider-diamond">♦</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="hero-subtitle reveal-item" style="--stagger: 4">KL Meena</p>
+          <p class="hero-date-pill reveal-item" style="--stagger: 5">July 10, 2026 · Today at 8:00 PM</p>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#invitation-letter" class="scroll-indicator" aria-label="Explore More">
+        <span class="scroll-text">Scroll to Explore</span>
+        <div class="scroll-mouse">
+          <span class="scroll-wheel"></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- INVITATION LETTER SECTION (Concise, royal Hindi sentence stagger) -->
+    <section id="invitation-letter" class="letter-section parallax-section">
+      <div class="section-container">
+        <div class="letter-card glass-card">
+          <div class="letter-seal">
+            <div class="wax-seal">
+              <span>KLM</span>
+            </div>
+          </div>
+          <h2 class="letter-greeting scroll-reveal-sentence">परम आदरणीय <span class="dynamic-guest-display">Rajkumar Meena & Arita Meena</span>,</h2>
+          
+          <div class="letter-body">
+            <p class="scroll-reveal-sentence">जीवन के इस सुंदर सफर में अपनों का साथ और स्नेह ही सबसे बड़ी पूंजी है।</p>
+            <p class="scroll-reveal-sentence">हमारे आदरणीय के.एल. मीना जी के 54वें जन्मोत्सव के इस शुभ एवं गौरवशाली अवसर पर हम आपको सपरिवार सादर आमंत्रित करते हैं।</p>
+            <p class="scroll-reveal-sentence">आपकी गरिमामयी उपस्थिति इस आनंदोत्सव को और भी विशेष व यादगार बनाएगी।</p>
+          </div>
+
+          <div class="letter-signoff scroll-reveal-sentence">
+            <p class="signoff-words">स्नेहाकांक्षी एवं विनीत,</p>
+            <div class="signature-text">Vijay shree Meena</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT CARDS SECTION (Short & crisp Hindi itinerary) -->
+    <section id="event-details" class="event-section">
+      <div class="section-container">
+        <header class="section-header scroll-reveal-sentence">
+          <span class="section-badge">कार्यक्रम</span>
+          <h2 class="section-title">भव्य शाम की रूपरेखा</h2>
+          <div class="gold-line-center"></div>
+        </header>
+
+        <div class="event-cards-grid">
+          <!-- Card 1: Date -->
+          <article class="event-card glass-card slide-up-card" style="--card-index: 0">
+            <div class="card-icon-wrapper">
+              <span class="card-emoji">📅</span>
+            </div>
+            <div class="card-content">
+              <span class="card-label">दिनांक</span>
+              <h3 class="card-title">10 जुलाई (आज)</h3>
+              <p class="card-detail">वर्ष 2026 · शुभ संध्या</p>
+            </div>
+            <div class="card-glow"></div>
+          </article>
+
+          <!-- Card 2: Time -->
+          <article class="event-card glass-card slide-up-card" style="--card-index: 1">
+            <div class="card-icon-wrapper">
+              <span class="card-emoji">🕒</span>
+            </div>
+            <div class="card-content">
+              <span class="card-label">समय</span>
+              <h3 class="card-title">सायं 8:00 बजे से</h3>
+              <p class="card-detail">भव्य जन्मोत्सव एवं स्वागत</p>
+            </div>
+            <div class="card-glow"></div>
+          </article>
+
+          <!-- Card 3: Venue -->
+          <article class="event-card glass-card slide-up-card" style="--card-index: 2">
+            <div class="card-icon-wrapper">
+              <span class="card-emoji">📍</span>
+            </div>
+            <div class="card-content">
+              <span class="card-label">स्थान</span>
+              <h3 class="card-title">E2, के.एल. मीना क्वार्टर</h3>
+              <p class="card-detail">शाही निवास · जन्मोत्सव स्थल</p>
+            </div>
+            <div class="card-glow"></div>
+          </article>
+
+          <!-- Card 4: Dinner -->
+          <article class="event-card glass-card slide-up-card" style="--card-index: 3">
+            <div class="card-icon-wrapper">
+              <span class="card-emoji">🍽️</span>
+            </div>
+            <div class="card-content">
+              <span class="card-label">शाही रात्रिभोज</span>
+              <h3 class="card-title">रात्रि 8:30 बजे से</h3>
+              <p class="card-detail">विशेष भोज एवं संगीत</p>
+            </div>
+            <div class="card-glow"></div>
+          </article>
+
+          <!-- Card 5: Cake Cutting -->
+          <article class="event-card glass-card slide-up-card" style="--card-index: 4">
+            <div class="card-icon-wrapper">
+              <span class="card-emoji">🎂</span>
+            </div>
+            <div class="card-content">
+              <span class="card-label">केक कटिंग</span>
+              <h3 class="card-title"> रात्रि 10:00 बजे</h3>
+              <p class="card-detail">शुभकामनाएं एवं केक कटिंग</p>
+            </div>
+            <div class="card-glow"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION (Concise Hindi countdown) -->
+    <section id="countdown-section" class="countdown-section">
+      <div class="section-container">
+        <div class="countdown-box glass-card">
+          <h2 class="countdown-heading scroll-reveal-sentence">ऐतिहासिक पल की प्रतीक्षा</h2>
+          <p class="countdown-subheading scroll-reveal-sentence">उत्सव के इस मंगल समय की ओर बढ़ते कदम</p>
+
+          <div class="countdown-grid">
+            <div class="countdown-unit">
+              <div class="number-display" id="count-days">00</div>
+              <span class="unit-label">दिन</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <div class="number-display" id="count-hours">00</div>
+              <span class="unit-label">घंटे</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <div class="number-display" id="count-minutes">00</div>
+              <span class="unit-label">मिनट</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <div class="number-display" id="count-seconds">00</div>
+              <span class="unit-label">सेकंड</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & VENUE SECTION (No Map Included as requested) -->
+    <section id="location-section" class="location-section no-map-section">
+      <div class="section-container">
+        <div class="location-card glass-card scroll-reveal-sentence centered-venue-card">
+          <div class="location-info">
+            <span class="section-badge">आयोजन स्थल</span>
+            <h2 class="section-title">E2, के.एल. मीना क्वार्टर</h2>
+            <p class="location-address">
+              <strong>के.एल. मीना क्वार्टर (E2, KL MEENA Quarter)</strong><br />
+              भव्य जन्मोत्सव एवं शाही भोज स्थल
+            </p>
+            <p class="location-note">सत्कार एवं अतिथि स्वागत की समुचित व्यवस्था उपलब्ध रहेगी।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP SECTION (Concise, punchy Hindi form) -->
+    <section id="rsvp-section" class="rsvp-section">
+      <div class="section-container">
+        <div class="rsvp-card glass-card scroll-reveal-sentence">
+          <div class="rsvp-header">
+            <span class="section-badge">उपस्थिति पुष्टि</span>
+            <h2 class="section-title">आपकी गरिमामयी उपस्थिति</h2>
+            <p class="rsvp-subtitle">कृपया आज सायं 8:00 बजे से पूर्व अपनी उपस्थिति की पुष्टि करने की कृपा करें।</p>
+
+          </div>
+
+          <form id="rsvp-form" class="rsvp-form" onsubmit="return false;">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="rsvp-name">पूरा नाम</label>
+                <input type="text" id="rsvp-name" required placeholder="आपका शुभ नाम" />
+              </div>
+              <div class="form-field">
+                <label for="rsvp-guests">अतिथियों की संख्या</label>
+                <select id="rsvp-guests">
+                  <option value="1">1 अतिथि</option>
+                  <option value="2" selected>2 अतिथि (सपरिवार)</option>
+                  <option value="3">3 अतिथि</option>
+                  <option value="4">4 अतिथि</option>
+                  <option value="5+">5+ अतिथि (पूरा परिवार)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="rsvp-notes">भोजन व विशेष निर्देश</label>
+              <textarea id="rsvp-notes" rows="2" placeholder="शाकाहारी, जैन भोजन या अन्य कोई विशेष निर्देश..."></textarea>
+            </div>
+
+            <div class="rsvp-decision-buttons">
+              <button type="button" id="btn-accept" class="rsvp-btn accept-btn magnetic-btn ripple-trigger active">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">सहर्ष उपस्थित रहेंगे</span>
+              </button>
+              <button type="button" id="btn-decline" class="rsvp-btn decline-btn magnetic-btn ripple-trigger">
+                <span class="btn-icon">🙏</span>
+                <span class="btn-text">क्षमा करें, असमर्थ हैं</span>
+              </button>
+            </div>
+
+            <div class="submit-wrapper">
+              <button type="submit" id="submit-rsvp-btn" class="luxury-btn primary-submit magnetic-btn ripple-trigger">
+                <span>पुष्टि दर्ज करें</span>
+                <div class="btn-glow-effect"></div>
+              </button>
+            </div>
+          </form>
+
+          <!-- Confirmation Screen -->
+          <div id="rsvp-confirmation" class="rsvp-confirmation hidden">
+            <div class="confirmation-icon">✨</div>
+            <h3 class="confirmation-title">आपकी उपस्थिति का हार्दिक स्वागत है</h3>
+            <p class="confirmation-message">आपकी उपस्थिति की पुष्टि के लिए धन्यवाद, <strong id="confirmed-guest-name">Rajkumar Meena & Arita Meena</strong>। आपकी व्यवस्था सुनिश्चित कर दी गई है।</p>
+            <div class="calendar-btn-wrapper">
+              <button id="add-to-calendar-btn" class="luxury-btn small-btn ripple-trigger">
+                📅 कैलेंडर में सुरक्षित करें
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION (Short royal quote) -->
+    <footer class="luxury-footer">
+      <div class="section-container">
+        <div class="footer-divider">
+          <span class="divider-line"></span>
+          <span class="divider-diamond">♦</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <blockquote class="footer-quote scroll-reveal-sentence">
+          &ldquo;खुशियाँ बाँटने से ही बढ़ती हैं,<br />
+          आपके आगमन से ही हमारा उत्सव पूर्ण होगा।&rdquo;
+        </blockquote>
+
+        <div class="footer-signatures scroll-reveal-sentence">
+          <div class="signature-block">
+            <span class="signature-label">विनीत एवं स्वागताकांक्षी,</span>
+            <span class="signature-script">Vijay shree Meena</span>
+          </div>
+        </div>
+
+        <div class="footer-credits">
+          <p>डिजिटल शाही निमंत्रण · के.एल. मीना जन्मोत्सव</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- JS Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
